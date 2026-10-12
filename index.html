@@ -7,126 +7,158 @@
 <style>
 :root {
   --bg: #0E0C0A;
-  --surface: #1A1714;
-  --surface2: #232019;
   --accent: #C4540A;
   --accent2: #E8A045;
   --text: #F0EDE8;
   --text-dim: #9A9088;
   --border: rgba(255,255,255,0.08);
-  --max: 1280px;
-  --gap: 16px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif; line-height: 1.6; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif; }
 
 /* NAV */
 nav { position: sticky; top: 0; z-index: 100; background: rgba(14,12,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-.nav-logo { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); text-decoration: none; }
-.nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a { color: var(--text-dim); text-decoration: none; font-size: 13px; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.nav-logo { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--accent2); }
 
-/* HERO */
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
-.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(14,12,10,0.7) 0%, rgba(14,12,10,0.3) 100%); }
-.hero-content { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto; padding: 80px 24px; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-.hero-tag { background: rgba(196,84,10,0.2); border: 1px solid rgba(196,84,10,0.4); color: var(--accent2); padding: 4px 14px; border-radius: 20px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
-.hero h1 { font-size: clamp(42px, 7vw, 96px); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 20px; font-family: 'Georgia', 'Times New Roman', 'Songti SC', serif; }
-.hero h1 span { color: var(--accent2); }
-.hero-bio { max-width: 640px; font-size: 17px; color: var(--text-dim); line-height: 1.7; margin-bottom: 36px; }
-.hero-cta { display: inline-flex; gap: 16px; flex-wrap: wrap; }
-.btn { padding: 12px 28px; border-radius: 4px; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: #d45f0f; }
-.btn-ghost { border: 1px solid var(--border); color: var(--text); }
-.btn-ghost:hover { border-color: var(--accent2); color: var(--accent2); }
-
-/* SECTION */
-section { padding: 80px 0; }
-.section-inner { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-.section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; font-weight: 600; }
-.section-title { font-size: clamp(26px, 4vw, 44px); font-weight: 700; line-height: 1.15; margin-bottom: 16px; font-family: 'Georgia', 'Times New Roman', 'Songti SC', serif; }
-.section-desc { color: var(--text-dim); font-size: 16px; max-width: 700px; line-height: 1.7; margin-bottom: 40px; }
-.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-/* ABOUT STRIP */
-.about-strip { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.about-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
-.about-col h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; color: var(--accent2); }
-.about-col p { color: var(--text-dim); font-size: 15px; line-height: 1.7; }
-
-/* PROJECT CARD */
-.project-card { background: var(--surface); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
-.project-card img, .project-card video { width: 100%; display: block; object-fit: cover; }
-.project-card .card-body { padding: 24px; }
-.project-card .card-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-.project-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; font-family: 'Georgia', 'Times New Roman', serif; }
-.project-card .card-role { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; letter-spacing: 0.04em; }
-.project-card p { color: var(--text-dim); font-size: 14px; line-height: 1.65; }
-
-/* GRIDS */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gap); }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
-.col-span-2 { grid-column: span 2; }
-.col-span-3 { grid-column: span 3; }
-
-/* IMAGE GALLERY */
-.gallery { display: grid; gap: var(--gap); }
-.gallery img, .gallery video { width: 100%; display: block; object-fit: cover; border-radius: 6px; }
-.gallery-2 { grid-template-columns: 1fr 1fr; }
-.gallery-3 { grid-template-columns: 1fr 1fr 1fr; }
-.gallery-4 { grid-template-columns: repeat(4, 1fr); }
-
-/* WIDE VIDEO */
-.video-wide { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; display: block; }
-.video-portrait { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 8px; display: block; max-height: 600px; }
-
 /* SLIDE SECTION */
-.slide-section { padding: 64px 0; border-bottom: 1px solid var(--border); }
-.slide-section:last-child { border-bottom: none; }
-.slide-inner { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.slide-section { width: 100%; padding: 0; }
+.slide-label { max-width: 1400px; margin: 0 auto; padding: 32px 32px 12px; }
+.slide-label .category { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.slide-label .title { font-size: clamp(18px, 2.5vw, 28px); font-weight: 700; color: var(--text); margin-top: 4px; font-family: Georgia, serif; }
 
-/* STAT ROW */
-.stat-row { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 32px; }
-.stat { }
-.stat-num { font-size: 36px; font-weight: 700; color: var(--accent2); font-family: 'Georgia', serif; }
-.stat-label { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+/* SLIDE CANVAS - 16:9 ratio, exact PPTX layout */
+.slide-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.slide-canvas img,
+.slide-canvas video {
+  position: absolute;
+  object-fit: cover;
+  display: block;
+}
 
-/* SKILLS */
-.skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-.skill-tag { background: var(--surface2); border: 1px solid var(--border); padding: 6px 16px; border-radius: 20px; font-size: 13px; color: var(--text-dim); }
+/* DIVIDER */
+.slide-divider { border: none; border-top: 1px solid var(--border); max-width: 1400px; margin: 0 auto; }
+
+/* HERO special */
+.hero-slide {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #0E0C0A;
+}
+.hero-slide video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,12,10,0.95) 0%, rgba(14,12,10,0.2) 60%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 48px;
+  max-width: 900px;
+}
+.hero-content h1 {
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-family: Georgia, 'Times New Roman', serif;
+  margin-bottom: 20px;
+}
+.hero-content h1 em { color: var(--accent2); font-style: normal; }
+.hero-content p {
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: var(--text-dim);
+  line-height: 1.6;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-tag {
+  background: rgba(196,84,10,0.15);
+  border: 1px solid rgba(196,84,10,0.35);
+  color: var(--accent2);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ABOUT */
+.about-slide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  background: #465159;
+}
+.about-col h3 { font-size: 16px; font-weight: 600; color: var(--accent2); margin-bottom: 10px; }
+.about-col p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
 
 /* CONTACT */
-.contact-section { background: var(--surface); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.contact-info { }
-.contact-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
-.contact-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-.contact-value { font-size: 16px; color: var(--text); }
-.contact-value a { color: var(--accent2); text-decoration: none; }
-
-/* FOOTER */
-footer { padding: 32px 24px; text-align: center; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+.contact-slide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  background: #465159;
+}
+.contact-slide h2 { font-size: clamp(32px, 4vw, 56px); font-weight: 700; font-family: Georgia, serif; margin-bottom: 32px; }
+.contact-links { display: flex; flex-direction: column; gap: 16px; }
+.contact-link { font-size: 18px; color: var(--accent2); text-decoration: none; }
+.contact-link:hover { text-decoration: underline; }
 
 /* QUOTE */
-.quote-block { border-left: 3px solid var(--accent); padding: 20px 28px; background: var(--surface2); border-radius: 0 6px 6px 0; font-style: italic; font-size: 18px; line-height: 1.7; color: var(--text-dim); margin: 32px 0; }
-.quote-attr { margin-top: 12px; font-style: normal; font-size: 13px; color: var(--accent2); }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .grid-3, .grid-4, .about-cols { grid-template-columns: 1fr 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .col-span-2, .col-span-3 { grid-column: span 1; }
+.quote-slide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  background: #465159;
 }
-@media (max-width: 600px) {
-  .grid-2, .grid-3, .grid-4, .about-cols, .gallery-2, .gallery-3, .gallery-4 { grid-template-columns: 1fr; }
+.quote-slide blockquote {
+  font-size: clamp(20px, 3vw, 36px);
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text);
+  border-left: 4px solid var(--accent);
+  padding-left: 32px;
+}
+
+/* FOOTER */
+footer { padding: 32px; text-align: center; color: var(--text-dim); font-size: 12px; border-top: 1px solid var(--border); }
+
+/* MOBILE */
+@media (max-width: 768px) {
   .nav-links { display: none; }
+  .hero-content { padding: 40px 24px; }
+  .about-slide { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
+  .slide-label { padding: 24px 20px 8px; }
+  .slide-canvas { aspect-ratio: 16/9; }
+  .contact-slide, .quote-slide { padding: 48px 24px; }
 }
 </style>
 </head>
@@ -137,546 +169,398 @@ footer { padding: 32px 24px; text-align: center; color: var(--text-dim); font-si
   <div class="nav-inner">
     <a class="nav-logo" href="#">Vince Fung</a>
     <ul class="nav-links">
-      <li><a href="#wow">Meta / WoW</a></li>
+      <li><a href="#meta-wow">WoW</a></li>
       <li><a href="#baseball">Baseball</a></li>
+      <li><a href="#nba">NBA</a></li>
       <li><a href="#orana">Orana</a></li>
       <li><a href="#sims">Sims</a></li>
-      <li><a href="#console">Console / AAA</a></li>
+      <li><a href="#console">Console</a></li>
       <li><a href="#mobile">Mobile</a></li>
-      <li><a href="#xr">XR / AR</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO — Slide 1 -->
-<section class="hero">
-  <img class="hero-video" src="img/image20.jpg" alt="hero background" style="object-position:center top;">
+<!-- SLIDE 1: HERO -->
+<section class="hero-slide">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="img/slash-loop-web.mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
+    <h1>Vince<br><em>Fung</em></h1>
+    <p>Art Director · Technical Artist · Studio Founder<br>25+ years across EA, Zynga, WB, Meta, Nokia · Character art at scale</p>
     <div class="hero-tags">
-      <span class="hero-tag">Art Director</span>
+      <span class="hero-tag">Character Art</span>
       <span class="hero-tag">Technical Art</span>
-      <span class="hero-tag">Visual Storyteller</span>
-    </div>
-    <h1>Vince<br><span>Fung</span></h1>
-    <p class="hero-bio">Art Director and technical innovator with 25+ years shipping billion-dollar franchises. I build pipelines, game systems, style guides, and team workflows that translate bold creative vision into scalable, player-ready games.</p>
-    <div class="hero-cta">
-      <a href="#wow" class="btn btn-primary">View Work</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      <span class="hero-tag">IP Design</span>
+      <span class="hero-tag">Live Service</span>
+      <span class="hero-tag">Mobile · Console · XR</span>
     </div>
   </div>
 </section>
 
-<!-- ABOUT — Slide 2 -->
-<section class="about-strip">
-  <div class="section-inner">
-    <div class="about-cols">
-      <div class="about-col">
-        <h3>Bridging Vision & Production</h3>
-        <p>Great art direction means nothing if it can't survive a production pipeline. I translate creative vision into actionable specifications — poly budgets, texture atlases, style guides, and QC checklists — ensuring what gets built matches what was imagined, whether the team is across the hall or across the globe.</p>
-      </div>
-      <div class="about-col">
-        <h3>Empathetic & Collaborative</h3>
-        <p>I build teams that outlast the project. From directing distributed studios of 50+ artists across time zones to managing major IP partners like Fox, MLB, and Warner Bros., my leadership style is direct, accountability-driven, and focused on one thing: shipping work that holds up under production demands.</p>
-      </div>
-      <div class="about-col">
-        <h3>Uncompromising Eye for the Craft</h3>
-        <p>Whether pushing vertices in DCC or reviewing a vendor's third pass, the same core question drives every decision: does this serve the player experience? That discipline has powered work across AAA console, mobile, VR, and AR across 25+ years.</p>
-      </div>
-    </div>
-    <div class="stat-row">
-      <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Years Industry Experience</div></div>
-      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Artists Directed</div></div>
-      <div class="stat"><div class="stat-num">$1B+</div><div class="stat-label">Franchise Revenue</div></div>
-    </div>
+<hr class="slide-divider">
+
+<!-- SLIDE 2: ABOUT -->
+<div class="about-slide" id="about">
+  <div class="about-col">
+    <h3>Experience</h3>
+    <p>25+ years directing character art across AAA console, mobile, VR, and AR — EA, Maxis, Visceral, Zynga, WB, Meta, Nokia Bell Labs.</p>
   </div>
+  <div class="about-col">
+    <h3>Studio</h3>
+    <p>Founder of [n]Cubate Studios — contract character art production with Bay Area creative direction and Beijing production infrastructure. Peak team of 50 artists.</p>
+  </div>
+  <div class="about-col">
+    <h3>Specialization</h3>
+    <p>IP licensor management, large cast production pipelines, character rigging and technical art, team building across distributed global studios.</p>
+  </div>
+</div>
+
+<hr class="slide-divider">
+
+<!-- SLIDE 3 -->
+<section class="slide-section" id="meta-wow">
+<div class="slide-label"><div class="category">Meta / WoW</div><div class="title">World of Warcraft — Character Art Direction</div></div>
+<div class="slide-canvas" style="background:#1F1F1F;">
+  <img src="img/image63.png" style="left:32.82%;top:5.8%;width:29.99%;height:29.99%;" alt="">
+  <img src="img/image116.png" style="left:32.82%;top:38.75%;width:29.99%;height:31.65%;" alt="">
+  <img src="img/image65.png" style="left:45.46%;top:5.29%;width:31.91%;height:75.0%;" alt="">
+  <img src="img/image10.jpg" style="left:1.25%;top:38.75%;width:29.99%;height:32.56%;" alt="">
+</div>
+<hr class="slide-divider">
 </section>
 
-<!-- META WAR OF WIZARDS — Slides 3 & 4 -->
-<div id="wow"></div>
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Meta · Quest VR · 2025</p>
-    <h2 class="section-title">War of Wizards</h2>
-    <p class="section-desc">Led the comprehensive visual overhaul of Meta's War of Wizards for Quest VR, serving as a strategic partner to establish a scalable quality benchmark for Meta's Central Art Group. Orchestrated the 'heavy lifting' across the pipeline — from character modeling and rigging to complex VFX — ensuring that high-fidelity aesthetic upgrades remained performance-optimized for VR hardware. This pilot program resulted in 'excellent' technical performance and direct praise from Meta's engineering and production teams.</p>
-
-    <!-- Video slide 3 -->
-    <video class="video-wide" autoplay muted loop playsinline style="margin-bottom:var(--gap);">
-      <source src="img/slash-loop-web.mp4" type="video/mp4">
-    </video>
-
-    <!-- Slide 3 stills -->
-    <div class="gallery gallery-3" style="margin-bottom:var(--gap);">
-      <img src="img/image63.png" alt="WoW character">
-      <img src="img/image116.png" alt="WoW Fox Hunter">
-      <img src="img/image65.png" alt="WoW environment">
-    </div>
-
-    <!-- Slide 4 details -->
-    <div class="gallery gallery-4" style="margin-bottom:24px;">
-      <img src="img/image84.gif" alt="WoW animation">
-      <img src="img/image11.png" alt="WoW character detail">
-      <img src="img/image33.png" alt="WoW asset">
-      <img src="img/image13.png" alt="WoW environment">
-    </div>
-    <div class="gallery gallery-2">
-      <img src="img/image50.png" alt="WoW detail">
-      <img src="img/image27.gif" alt="WoW animation">
-    </div>
-
-    <div style="margin-top:32px;" class="grid-2">
-      <div>
-        <p class="section-label">VR-Optimized Rigging & Animation</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;">Developed high-fidelity skeletal systems designed for low-latency VR environments.</p>
-      </div>
-      <div>
-        <p class="section-label">Immersive VFX</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;">Created performant visual effects that enhanced the "presence" of spell-casting without impacting the 72/90Hz frame rate requirements.</p>
-      </div>
-      <div>
-        <p class="section-label">End-to-End Asset Ownership</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;">Managed the creation of props, environments, and characters to ensure a cohesive visual language across the entire VR experience.</p>
-      </div>
-      <div>
-        <p class="section-label">Strategic Vendor Pilot</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;">Directed a cross-studio pilot that set the quality bar for Meta's broader VR art initiatives.</p>
-      </div>
-    </div>
-  </div>
+<!-- SLIDE 4 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Meta / WoW</div><div class="title">World of Warcraft — Hero Roster</div></div>
+<div class="slide-canvas" style="background:#1F1F1F;">
+  <img src="img/image84.gif" style="left:23.14%;top:41.45%;width:13.03%;height:32.52%;" alt="">
+  <img src="img/image11.png" style="left:1.03%;top:41.94%;width:21.22%;height:32.52%;" alt="">
+  <img src="img/image33.png" style="left:60.73%;top:15.31%;width:14.27%;height:39.01%;" alt="">
+  <img src="img/image13.png" style="left:1.03%;top:3.55%;width:34.78%;height:37.29%;" alt="">
+  <img src="img/image50.png" style="left:48.78%;top:40.84%;width:18.0%;height:33.09%;" alt="">
+  <img src="img/image27.gif" style="left:54.38%;top:37.5%;width:23.03%;height:40.43%;" alt="">
 </div>
-
-<!-- BASEBALL — Slides 5 & 6 -->
-<div id="baseball"></div>
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">MLB · MLBPA · Supercell · 2024</p>
-    <h2 class="section-title">Play Ball!</h2>
-    <p class="section-desc">Reimagining America's Pastime: Baseball for a New Generation. Injecting coolness and approachability into this timeless game, creating a fresh and engaging experience that captures the essence of baseball while catering to modern sensibilities. Officially licensed in partnership with MLB, MLBPA, and Supercell.</p>
-
-    <div class="gallery gallery-2" style="margin-bottom:var(--gap);">
-      <img src="img/image28.png" alt="Baseball hero">
-      <div class="gallery" style="display:flex;flex-direction:column;gap:var(--gap);">
-        <img src="img/image19.png" alt="Baseball detail" style="flex:1;object-fit:cover;">
-        <img src="img/image29.gif" alt="Baseball animation" style="flex:1;object-fit:cover;">
-      </div>
-    </div>
-
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.75;max-width:800px;">One of the biggest challenges in creating baseball games, especially licensed ones, is finding the sweet spot between creative freedom and faithful representation. Players' likenesses, logos, and colors are all meticulously scrutinized. Through close collaboration with the MLB and MLBPA, every element — from player models to team logos — reflects official guidelines while allowing for creative expression.</p>
-  </div>
-</div>
-
-<!-- STORMFORGE — Slide 7 -->
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Roboto Games</p>
-    <h2 class="section-title">Stormforge</h2>
-    <p class="section-desc">Provided rigging and animation expertise for Roboto Games' upcoming title, Stormforge. Led a team of five artists animating the "Fire Troll," a key boss character for the game's vertical slice demo. Drawing inspiration from the fearsome trolls of Lord of the Rings, we brought the Fire Troll to life with powerful and intimidating movements.</p>
-
-    <div class="gallery gallery-4">
-      <img src="img/image107.png" alt="Stormforge character">
-      <img src="img/image15.png" alt="Stormforge detail">
-      <img src="img/image23.gif" alt="Stormforge animation">
-      <img src="img/image25.jpg" alt="Stormforge environment">
-    </div>
-  </div>
-</div>
-
-<!-- NBA smSTARS — Slide 8 -->
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">NBA Lab</p>
-    <h2 class="section-title">NBA smSTARS</h2>
-    <p class="section-desc">Partnered with NBA Lab on the launch lineup for the NBA smSTARS franchise. Directed player character modeling — outfits, gear, and accessories — optimized for real-time performance budgets. Led the technical implementation of facial rigging and blend shape systems, enabling expressive AR-ready character performance across the full launch roster.</p>
-
-    <div class="gallery gallery-4" style="margin-bottom:var(--gap);">
-      <img src="img/image45.gif" alt="NBA character animation">
-      <img src="img/image75.jpg" alt="NBA character">
-      <img src="img/image32.png" alt="NBA character">
-      <img src="img/image108.jpg" alt="NBA colorway">
-    </div>
-    <div class="gallery gallery-4">
-      <img src="img/image22.png" alt="NBA sneaker">
-      <img src="img/image24.jpg" alt="NBA sneaker">
-      <img src="img/image31.png" alt="NBA sneaker">
-      <img src="img/image52.png" alt="NBA detail">
-    </div>
-    <p class="section-label" style="margin-top:20px;">SC-3 High Top Colorways</p>
-  </div>
-</div>
-
-<!-- BEAD HARVEST — Slide 9 -->
-<div id="mobile"></div>
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">[n]Cubate Studios · 2025</p>
-    <h2 class="section-title">Bead Harvest — Orana</h2>
-    <p class="section-desc">Directed the end-to-end UX and visual design for Bead Harvest, an original mobile title developed in-house. Engineered a high-retention experience by translating cognitive psychology principles into tactile, accessibility-first interface design. Optimized visual hierarchy and interaction loops to drive organic discovery and long-term engagement.</p>
-
-    <div class="grid-2" style="gap:var(--gap);align-items:start;">
-      <video class="video-portrait" autoplay muted loop playsinline>
-        <source src="img/bead-harvest.mp4" type="video/mp4">
-      </video>
-      <div class="gallery gallery-2">
-        <img src="img/image44.png" alt="Bead Harvest UI">
-        <img src="img/image40.png" alt="Bead Harvest screen">
-        <img src="img/image37.png" alt="Bead Harvest gameplay">
-        <img src="img/image34.jpg" alt="Bead Harvest detail">
-        <img src="img/image35.png" alt="Bead Harvest asset">
-        <img src="img/image30.jpg" alt="Bead Harvest UI">
-        <img src="img/image41.png" alt="Bead Harvest screen">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PAST MOBILE — Slides 10 & 11 -->
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">Mobile · 20+ Years</p>
-    <h2 class="section-title">Past Mobile Projects</h2>
-    <p class="section-desc">From design and prototype to asset creation and marketing campaign, we teamed up with major publishers and developers worldwide creating hits with millions of downloads. Major hits include: Final Fantasy 15, Mobile Strike, Farmville, Cityville, Star Wars: Uprising, Marvel: Strike Force, Spirit Lords, Wild Beyond, Transformers: Age of Extinction, WWE Champions, High Noon, Harry Potter: Wizards Unite, Card King: Dragon Wars, FunPlus: Blast Squad, Supercell: Eraser Blast.</p>
-
-    <div class="gallery gallery-3" style="margin-bottom:var(--gap);">
-      <img src="img/image39.jpg" alt="Mobile project">
-      <img src="img/image38.jpg" alt="Mobile project">
-      <img src="img/image42.jpg" alt="Mobile project">
-    </div>
-    <div class="gallery gallery-3">
-      <img src="img/image71.jpg" alt="Top hits">
-      <img src="img/image47.jpg" alt="Top hits">
-      <img src="img/image58.jpg" alt="Top hits">
-    </div>
-  </div>
-</div>
-
-<!-- IP DESIGN — Slide 12 -->
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Original IP · Design</p>
-    <h2 class="section-title">IP Development & Design</h2>
-    <p class="section-desc">Besides licensed IP, we also helped many teams and developers with their original game ideas. From concept to asset productions, we contributed in many disciplines from end-to-end for many original hits — including Pocket Gem's Wild Beyond.</p>
-
-    <div class="gallery gallery-3">
-      <img src="img/image43.jpg" alt="IP design">
-      <img src="img/image61.jpg" alt="IP design">
-      <img src="img/image54.jpg" alt="IP design">
-      <img src="img/image56.jpg" alt="IP design">
-      <img src="img/image48.jpg" alt="IP design">
-    </div>
-  </div>
-</div>
-
-<!-- SIMS — Slides 13 & 14 -->
-<div id="sims"></div>
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">Electronic Arts · The Sims Franchise</p>
-    <h2 class="section-title">The Sims Franchise</h2>
-    <p class="section-desc">Strategic Art Direction & Global Market Adaptation. Shaped the iconic visual language of one of the world's most successful life-simulation brands while leading cross-cultural content strategies.</p>
-
-    <div class="grid-2" style="gap:40px;margin-bottom:40px;">
-      <div>
-        <p class="section-label">Global Localization Strategy</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;margin-bottom:20px;">Partnered with Asian localization teams to strategically adapt character aesthetics and environmental assets to resonate with regional market tastes.</p>
-        <p class="section-label">Balanced Brand Integrity</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;margin-bottom:20px;">Executed subtle yet impactful visual pivots that maintained the global "Sims" brand identity while maximizing local consumer engagement.</p>
-      </div>
-      <div>
-        <p class="section-label">Pipeline Innovation</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;margin-bottom:20px;">Architected scalable character design workflows and technical asset standards used across PC, Console, and Handheld platforms.</p>
-        <p class="section-label">Technical Leadership</p>
-        <p style="color:var(--text-dim);font-size:14px;line-height:1.7;">Directed cross-functional teams to deliver platform-specific variations while preserving visual cohesion across the entire franchise.</p>
-      </div>
-    </div>
-
-    <div class="gallery gallery-4" style="margin-bottom:var(--gap);">
-      <img src="img/image53.jpg" alt="Sims character">
-      <img src="img/image49.jpg" alt="Sims character">
-      <img src="img/image78.png" alt="Sims character">
-      <img src="img/image51.png" alt="Sims character">
-    </div>
-    <div class="gallery gallery-4" style="margin-bottom:var(--gap);">
-      <img src="img/image46.jpg" alt="Sims asset">
-      <img src="img/image139.png" alt="Sims DS box">
-      <img src="img/image97.jpg" alt="Sims asset">
-      <img src="img/image57.jpg" alt="Sims asset">
-    </div>
-    <!-- Slide 14 — visual only -->
-    <div class="gallery gallery-4">
-      <img src="img/image79.png" alt="Sims visual">
-      <img src="img/image55.png" alt="Sims visual">
-      <img src="img/image99.png" alt="Sims visual">
-      <img src="img/image68.jpg" alt="Sims visual">
-    </div>
-  </div>
-</div>
-
-<!-- ORANA WORLD — Slide 15 -->
-<div id="orana"></div>
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Original IP · [n]Cubate Studios</p>
-    <h2 class="section-title">The World of Orana</h2>
-
-    <div class="gallery gallery-4">
-      <img src="img/image59.png" alt="Orana world">
-      <img src="img/image64.gif" alt="Orana animation">
-      <img src="img/image60.png" alt="Orana world">
-      <img src="img/image66.png" alt="Orana world">
-    </div>
-  </div>
-</div>
-
-<!-- ORANA IP DEV — Slide 16 -->
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">IP Development · Rapid Prototyping</p>
-    <h2 class="section-title">Orana — Characters & IP</h2>
-
-    <div class="grid-2" style="gap:var(--gap);align-items:start;">
-      <video class="video-portrait" autoplay muted loop playsinline>
-        <source src="img/bloo-logo.mp4" type="video/mp4">
-      </video>
-      <img src="img/image62.jpg" alt="Orana IP" style="width:100%;border-radius:8px;object-fit:cover;">
-    </div>
-    <div class="gallery gallery-3" style="margin-top:var(--gap);">
-      <img src="img/image141.png" alt="Orana characters">
-    </div>
-  </div>
-</div>
-
-<!-- ORANA AI / STRUCTURED WORLD — Slide 17 -->
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Orana · AI Architecture</p>
-    <h2 class="section-title">Structured World Models & Composition</h2>
-    <p class="section-desc">Continuous Bayesian Learning. By utilizing object-centered physics discovery, we ground agents in reality, requiring fewer parameters and less data to achieve human-like representations. Complex worlds and concepts are built from simpler, well-understood models, allowing for a highly composable and auditable ecosystem.</p>
-
-    <div class="gallery gallery-3">
-      <img src="img/image143.png" alt="Orana AI">
-      <img src="img/image142.png" alt="Orana model">
-      <img src="img/image140.png" alt="Orana world">
-    </div>
-  </div>
-</div>
-
-<!-- ORANA LINK — Slide 18 -->
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <img src="img/image69.png" alt="Orana link" style="max-width:600px;width:100%;border-radius:8px;">
-  </div>
-</div>
-
-<!-- ORANA STYLE GUIDE — Slide 19 -->
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">World of Orana · Style Guide</p>
-    <h2 class="section-title">Art Bible & Style Guide</h2>
-    <p class="section-desc">Prototype mini-game developed in-house for the World of Orana platform. Authored the complete style guide from scratch — establishing color language, silhouette rules, material standards, and environmental mood boards that defined the visual identity of the game.</p>
-
-    <div class="gallery gallery-4">
-      <img src="img/image67.png" alt="Style guide">
-      <img src="img/image72.png" alt="Style guide">
-      <img src="img/image70.png" alt="Style guide">
-      <img src="img/image93.jpg" alt="Style guide">
-    </div>
-  </div>
-</div>
-
-<!-- DANTE'S INFERNO — Slide 20 -->
-<div id="console"></div>
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">EA · Visceral Games</p>
-    <h2 class="section-title">Dante's Inferno</h2>
-    <p class="section-desc">Curated a cohesive visual narrative by bridging classical fine-art inspiration with AAA technical pipelines. Orchestrated a multi-disciplinary ecosystem of internal leads and external vendors to deliver stylistic continuity across a massive transmedia launch — spanning in-game assets, comics, and a Super Bowl campaign. Established the high-fidelity aesthetic benchmark that defined the Visceral Games brand.</p>
-
-    <div class="gallery gallery-4" style="margin-bottom:var(--gap);">
-      <img src="img/image77.png" alt="Dante's Inferno">
-      <img src="img/image86.png" alt="Dante's Inferno">
-      <img src="img/image80.jpg" alt="Dante's Inferno">
-      <img src="img/image74.jpg" alt="Dante's Inferno">
-    </div>
-    <div class="gallery gallery-4">
-      <img src="img/image81.png" alt="Dante's Inferno">
-      <img src="img/image87.jpg" alt="Dante's Inferno">
-      <img src="img/image73.jpg" alt="Dante's Inferno">
-      <img src="img/image76.jpg" alt="Dante's Inferno">
-      <img src="img/image82.jpg" alt="Dante's Inferno">
-    </div>
-  </div>
-</div>
-
-<!-- GAMES / AR / EDTECH — Slide 21 -->
-<div id="xr"></div>
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Games · AR · EdTech</p>
-    <h2 class="section-title">Warner Bros. · Harry Potter & Beyond</h2>
-    <p class="section-desc">Collaborated with Warner Bros. Games on Harry Potter: Wizard Unite. Designed and implemented a variety of AR elements and assets including 3D prop design, 2D UI creation, and spline character animation and VFX. Beyond Harry Potter, applied diverse experience to VR educational hardware and digital installations, collaborating with clients such as Zspace and Nokia.</p>
-
-    <div class="gallery gallery-4" style="margin-bottom:var(--gap);">
-      <img src="img/image110.png" alt="Harry Potter AR">
-      <img src="img/image92.jpg" alt="Harry Potter AR">
-      <img src="img/image88.jpg" alt="Harry Potter AR">
-      <img src="img/image111.png" alt="Harry Potter AR">
-    </div>
-    <div class="gallery gallery-4">
-      <img src="img/image83.png" alt="AR experience">
-      <img src="img/image94.png" alt="AR experience">
-      <img src="img/image85.png" alt="AR experience">
-      <img src="img/image106.png" alt="EdTech">
-    </div>
-  </div>
-</div>
-
-<!-- CLOCKWORK REVOLUTION — Slides 22 & 23 -->
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">InXile Entertainment · A Microsoft Company</p>
-    <h2 class="section-title">Clockwork Revolution</h2>
-    <p class="section-desc">Contributed to the development of InXile Entertainment's highly anticipated AAA title, Clockwork Revolution. Created detailed character models using ZBrush, and designed captivating costumes and steampunk-inspired machinery. Character Work — High Res ZBrush model. Costume and Hard Surface Body Parts with a steampunk flare.</p>
-
-    <div class="gallery gallery-4" style="margin-bottom:var(--gap);">
-      <img src="img/image89.jpg" alt="Clockwork Revolution character">
-      <img src="img/image90.gif" alt="Clockwork Revolution animation">
-      <img src="img/image117.png" alt="Clockwork Revolution">
-      <img src="img/image91.png" alt="Clockwork Revolution">
-    </div>
-    <div class="gallery gallery-3">
-      <img src="img/image125.jpg" alt="Clockwork Revolution">
-      <img src="img/image95.jpg" alt="Clockwork Revolution">
-      <img src="img/image96.jpg" alt="Clockwork Revolution">
-    </div>
-  </div>
-</div>
-
-<!-- BROOKLYN CHILDREN'S MUSEUM — Slide 24 -->
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Moey Inc. · Brooklyn Children's Museum</p>
-    <h2 class="section-title">From Prehistoric to the Borough: A Brooklyn AR Adventure</h2>
-    <p class="section-desc">Collaborated with Moey Inc. on an AR installation experience for the Brooklyn Children's Museum centered around the 1930s era. The project required detailed research into 1930s architecture to accurately recreate the atmosphere of the era. The lighting was meticulously crafted to evoke the distinct atmosphere of the era, with warm tones and long shadows. The final product was a captivating and immersive experience that transported visitors back in time to the nostalgic streets of 1930s Brooklyn.</p>
-
-    <div class="gallery gallery-4">
-      <img src="img/image100.png" alt="Brooklyn AR">
-      <img src="img/image98.png" alt="Brooklyn AR">
-      <img src="img/image105.png" alt="Brooklyn street">
-      <img src="img/image101.png" alt="Brooklyn AR">
-      <img src="img/image104.png" alt="Brooklyn AR">
-    </div>
-  </div>
-</div>
-
-<!-- NOKIA BELL LABS — Slide 25 -->
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">Nokia Bell Labs · 2020</p>
-    <h2 class="section-title">Nokia Bell Labs — Logistics AR & Future X Emulator</h2>
-    <p class="section-desc">Partnered with MOEY and Nokia Bell Labs to design and execute the "Future X Emulator," a large-scale AR installation exploring the future of autonomous logistics and human-computer interaction. Directed concept development, 3D environment modeling, UI design, and real-time animation across a multi-screen immersive experience. The final installation was deployed at Nokia's NYC and European headquarters, visualizing AI-driven cargo fleet management and 5G supply chain technology for executive and enterprise audiences.</p>
-
-    <div class="gallery gallery-4">
-      <img src="img/image102.png" alt="Nokia Bell Labs AR">
-      <img src="img/image103.jpg" alt="Nokia Bell Labs">
-      <img src="img/image128.png" alt="Nokia Bell Labs">
-      <img src="img/image109.png" alt="Nokia Bell Labs">
-    </div>
-  </div>
-</div>
-
-<!-- FARMVILLE / ZYNGA — Slide 26 -->
-<div class="slide-section">
-  <div class="slide-inner">
-    <p class="section-label">Zynga</p>
-    <h2 class="section-title">Farmville / Cityville Franchise</h2>
-    <p class="section-desc">Successfully spearheaded the 2D-to-3D transition of the mega-hit Farmville franchise. As a subject matter expert, established workflows, pipelines, visual standards, and budgets for all character and farm animal assets. The final result is a visually cohesive 3D style that continues to be used across various Farmville iterations on mobile and other platforms. Fostered a long-term partnership with Zynga, ensuring consistent style evolution throughout pre-production.</p>
-
-    <div class="gallery gallery-4" style="margin-bottom:var(--gap);">
-      <img src="img/image112.gif" alt="Farmville animation">
-      <img src="img/image121.png" alt="Farmville character">
-      <img src="img/image132.png" alt="Farmville character">
-      <img src="img/image113.png" alt="Farmville character">
-    </div>
-    <div class="gallery gallery-4">
-      <img src="img/image137.png" alt="Farmville character">
-      <img src="img/image135.jpg" alt="Farmville character">
-      <img src="img/image118.jpg" alt="Farmville character">
-      <img src="img/image131.png" alt="Farmville character">
-    </div>
-  </div>
-</div>
-
-<!-- CORPORATE / EDTECH / CG — Slide 27 -->
-<div class="slide-section" style="background:var(--surface);">
-  <div class="slide-inner">
-    <p class="section-label">Corporate · EdTech · CG Shows</p>
-    <h2 class="section-title">Bouncy CG Show & Nokia 5G Logistics</h2>
-    <p class="section-desc">Partnered closely with the creator and showrunner to shepherd two full-length episodes of Bouncy to life. Assembled a talented team of animators, artists, and producers, fostering a collaborative environment that brought the concept to life and secured further funding. Also helped visualize Nokia's 5G deployment and logistics, AI selfless cargo fleet, and supply chain technology implementation across a 360° AR installation experience at NYC Nokia and European HQ.</p>
-
-    <div class="gallery gallery-4">
-      <img src="img/image119.png" alt="Bouncy CG show">
-      <img src="img/image114.png" alt="Bouncy CG show">
-      <img src="img/image138.gif" alt="Bouncy animation">
-      <img src="img/image127.png" alt="Corporate CG">
-      <img src="img/image130.jpg" alt="Nokia 5G">
-    </div>
-  </div>
-</div>
-
-<!-- QUOTE — Slide 28 -->
-<div class="slide-section">
-  <div class="slide-inner">
-    <div class="quote-block">
-      "Anything you can imagine is real."
-      <div class="quote-attr">— Quote attributed to Pablo Picasso</div>
-    </div>
-    <p style="color:var(--text-dim);font-size:14px;margin-top:16px;">Image: Zobots Game & Toy Design · Client: Kung-Fu Factory</p>
-    <img src="img/image133.png" alt="Zobots" style="margin-top:24px;width:100%;max-width:600px;border-radius:8px;">
-  </div>
-</div>
-
-<!-- CONTACT — Slide 29 -->
-<div id="contact"></div>
-<section class="contact-section">
-  <div class="section-inner">
-    <p class="section-label">Let's Work Together</p>
-    <h2 class="section-title">Contact Me</h2>
-
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-item">
-          <div>
-            <div class="contact-label">Phone</div>
-            <div class="contact-value"><a href="tel:+15102898726">+1.510.289.8726</a></div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value"><a href="mailto:vince@ncubate-studios.com">vince@ncubate-studios.com</a></div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div>
-            <div class="contact-label">Location</div>
-            <div class="contact-value">California, USA</div>
-          </div>
-        </div>
-      </div>
-      <div class="gallery gallery-2">
-        <img src="img/image134.png" alt="Contact" style="border-radius:8px;">
-        <img src="img/image136.jpg" alt="Contact" style="border-radius:8px;">
-        <img src="img/image122.jpg" alt="Contact" style="border-radius:8px;">
-        <img src="img/image126.png" alt="Contact" style="border-radius:8px;">
-      </div>
-    </div>
-  </div>
+<hr class="slide-divider">
 </section>
 
-<footer>
-  <p>© 2025 Vince Fung · Art Director & Technical Artist · <a href="mailto:vince@ncubate-studios.com" style="color:var(--accent2);text-decoration:none;">vince@ncubate-studios.com</a></p>
-</footer>
+<!-- SLIDE 5 -->
+<section class="slide-section" id="baseball">
+<div class="slide-label"><div class="category">Baseball</div><div class="title">Baseball Project — Key Art</div></div>
+<div class="slide-canvas" style="background:#465159;">
+  <img src="img/image28.png" style="left:0.07%;top:-0.13%;width:75.0%;height:75.13%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 6 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Baseball</div><div class="title">Baseball Project — Characters</div></div>
+<div class="slide-canvas" style="background:#465159;">
+  <img src="img/image19.png" style="left:0.0%;top:0.0%;width:75.0%;height:75.0%;" alt="">
+  <img src="img/image29.gif" style="left:18.08%;top:15.75%;width:16.02%;height:44.56%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 7 -->
+<section class="slide-section" id="stormforge">
+<div class="slide-label"><div class="category">Stormforge</div><div class="title">Stormforge — Environment & Characters</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image107.png" style="left:0;top:0;width:100%;height:100%;object-fit:cover;" alt="">
+  <img src="img/image15.png" style="left:46.92%;top:3.81%;width:15.15%;height:4.29%;" alt="">
+  <img src="img/image23.gif" style="left:0.0%;top:26.51%;width:34.7%;height:48.49%;" alt="">
+  <img src="img/image25.jpg" style="left:47.44%;top:48.26%;width:23.9%;height:23.9%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 8 -->
+<section class="slide-section" id="nba">
+<div class="slide-label"><div class="category">NBA smSTARS</div><div class="title">NBA smSTARS — Character Art Direction</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image22.png" style="left:65.79%;top:4.2%;width:6.11%;height:10.87%;" alt="">
+  <img src="img/image24.jpg" style="left:1.34%;top:56.58%;width:8.53%;height:14.21%;" alt="">
+  <img src="img/image21.jpg" style="left:27.91%;top:56.58%;width:8.3%;height:14.21%;" alt="">
+  <img src="img/image36.jpg" style="left:19.01%;top:56.58%;width:8.05%;height:14.21%;" alt="">
+  <img src="img/image26.jpg" style="left:10.27%;top:56.58%;width:8.22%;height:14.21%;" alt="">
+  <img src="img/image52.png" style="left:1.4%;top:5.32%;width:25.72%;height:50.23%;" alt="">
+  <img src="img/image31.png" style="left:21.99%;top:6.8%;width:40.23%;height:19.66%;" alt="">
+  <img src="img/image75.jpg" style="left:49.59%;top:27.99%;width:24.09%;height:19.07%;" alt="">
+  <img src="img/image45.gif" style="left:37.33%;top:33.47%;width:12.26%;height:37.32%;" alt="">
+  <img src="img/image108.jpg" style="left:21.99%;top:29.1%;width:14.85%;height:14.89%;" alt="">
+  <img src="img/image32.png" style="left:60.55%;top:13.78%;width:14.03%;height:14.21%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 9 -->
+<section class="slide-section" id="bead">
+<div class="slide-label"><div class="category">Bead Harvest</div><div class="title">Bead Harvest — IP Design</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image40.png" style="left:22.34%;top:50.52%;width:11.33%;height:22.28%;" alt="">
+  <img src="img/image37.png" style="left:9.96%;top:28.5%;width:11.84%;height:44.3%;" alt="">
+  <img src="img/image35.png" style="left:34.22%;top:38.83%;width:10.31%;height:19.56%;" alt="">
+  <img src="img/image30.jpg" style="left:23.08%;top:29.05%;width:9.85%;height:19.56%;" alt="">
+  <img src="img/image41.png" style="left:46.59%;top:16.89%;width:24.97%;height:55.91%;" alt="">
+  <img src="img/image34.jpg" style="left:48.05%;top:22.25%;width:14.27%;height:46.83%;" alt="">
+  <img src="img/image44.png" style="left:46.78%;top:10.29%;width:16.79%;height:6.88%;" alt="">
+  <video src="img/bead-harvest.mp4" style="left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:0.8;" autoplay muted loop playsinline></video>
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 10 -->
+<section class="slide-section" id="mobile">
+<div class="slide-label"><div class="category">Mobile</div><div class="title">Past Mobile Work</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image39.jpg" style="left:3.04%;top:9.68%;width:33.28%;height:33.41%;" alt="">
+  <img src="img/image38.jpg" style="left:38.23%;top:37.5%;width:34.11%;height:34.11%;" alt="">
+  <img src="img/image42.jpg" style="left:3.04%;top:42.01%;width:33.28%;height:30.29%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 11 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Mobile</div><div class="title">Past Mobile Work</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image71.jpg" style="left:1.66%;top:40.0%;width:29.28%;height:29.28%;" alt="">
+  <img src="img/image47.jpg" style="left:31.78%;top:27.45%;width:41.83%;height:41.83%;" alt="">
+  <img src="img/image58.jpg" style="left:1.66%;top:9.53%;width:29.28%;height:29.28%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 12 -->
+<section class="slide-section" id="ip">
+<div class="slide-label"><div class="category">IP Design</div><div class="title">IP Design & Development</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image43.jpg" style="left:32.01%;top:5.36%;width:41.33%;height:32.14%;" alt="">
+  <img src="img/image61.jpg" style="left:52.61%;top:42.38%;width:21.37%;height:27.64%;" alt="">
+  <img src="img/image54.jpg" style="left:35.11%;top:41.63%;width:20.88%;height:30.38%;" alt="">
+  <img src="img/image56.jpg" style="left:17.76%;top:40.24%;width:17.95%;height:31.91%;" alt="">
+  <img src="img/image48.jpg" style="left:2.03%;top:40.24%;width:15.73%;height:31.91%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 13 -->
+<section class="slide-section" id="sims">
+<div class="slide-label"><div class="category">Sims</div><div class="title">The Sims — Character Art</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image49.jpg" style="left:1.26%;top:2.75%;width:22.7%;height:21.12%;" alt="">
+  <img src="img/image78.png" style="left:62.77%;top:55.79%;width:10.43%;height:18.54%;" alt="">
+  <img src="img/image46.jpg" style="left:50.79%;top:44.76%;width:11.63%;height:29.57%;" alt="">
+  <img src="img/image139.png" style="left:37.5%;top:53.21%;width:12.6%;height:21.12%;" alt="">
+  <img src="img/image97.jpg" style="left:23.76%;top:50.99%;width:13.05%;height:23.2%;" alt="">
+  <img src="img/image57.jpg" style="left:13.26%;top:41.49%;width:13.05%;height:32.71%;" alt="">
+  <img src="img/image51.png" style="left:62.77%;top:27.39%;width:10.43%;height:26.29%;" alt="">
+  <img src="img/image53.jpg" style="left:1.48%;top:28.88%;width:13.72%;height:34.45%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 14 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Sims</div><div class="title">The Sims — Characters & Costumes</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image79.png" style="left:1.25%;top:2.22%;width:34.68%;height:70.56%;" alt="">
+  <img src="img/image55.png" style="left:37.18%;top:2.22%;width:36.57%;height:26.98%;" alt="">
+  <img src="img/image99.png" style="left:37.18%;top:31.43%;width:36.57%;height:36.57%;" alt="">
+  <img src="img/image68.jpg" style="left:68.49%;top:61.7%;width:5.88%;height:10.46%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 15 -->
+<section class="slide-section" id="orana">
+<div class="slide-label"><div class="category">Orana World</div><div class="title">Orana — World Building</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image59.png" style="left:0.0%;top:2.44%;width:75.0%;height:70.12%;" alt="">
+  <img src="img/image64.gif" style="left:35.94%;top:0.0%;width:23.3%;height:25.74%;" alt="">
+  <img src="img/image60.png" style="left:25.3%;top:11.91%;width:12.2%;height:48.18%;" alt="">
+  <img src="img/image66.png" style="left:0.18%;top:31.68%;width:31.33%;height:41.78%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 16 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Orana IP</div><div class="title">Orana — IP Design</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image141.png" style="left:0.0%;top:0.0%;width:75.0%;height:75.0%;" alt="">
+  <img src="img/image62.jpg" style="left:18.82%;top:20.21%;width:49.21%;height:49.21%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 17 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Orana AI</div><div class="title">Orana — AI Integration</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image143.png" style="left:-0.07%;top:0.0%;width:75.13%;height:75.0%;" alt="">
+  <img src="img/image142.png" style="left:25.88%;top:29.6%;width:23.24%;height:42.63%;" alt="">
+  <img src="img/image140.png" style="left:37.02%;top:52.39%;width:10.91%;height:17.61%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 18 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Orana Link</div><div class="title">Orana — Style System</div></div>
+<div class="slide-canvas" style="background:#465159;">
+  <img src="img/image69.png" style="left:0.0%;top:-0.59%;width:75.0%;height:76.17%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 19 -->
+<section class="slide-section" id="style">
+<div class="slide-label"><div class="category">Style Guide</div><div class="title">Style Guide & Visual Development</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image67.png" style="left:29.41%;top:9.01%;width:23.19%;height:25.65%;" alt="">
+  <img src="img/image72.png" style="left:0.74%;top:3.58%;width:28.13%;height:35.2%;" alt="">
+  <img src="img/image70.png" style="left:16.41%;top:40.49%;width:42.18%;height:33.29%;" alt="">
+  <img src="img/image93.jpg" style="left:49.64%;top:10.91%;width:22.4%;height:57.13%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 20 -->
+<section class="slide-section" id="console">
+<div class="slide-label"><div class="category">Dante's Inferno</div><div class="title">Dante's Inferno — Character Art</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image80.jpg" style="left:48.05%;top:6.72%;width:24.21%;height:49.17%;" alt="">
+  <img src="img/image74.jpg" style="left:59.43%;top:40.6%;width:15.22%;height:32.1%;" alt="">
+  <img src="img/image87.jpg" style="left:26.73%;top:6.72%;width:20.48%;height:41.81%;" alt="">
+  <img src="img/image73.jpg" style="left:1.97%;top:47.59%;width:21.36%;height:24.77%;" alt="">
+  <img src="img/image76.jpg" style="left:46.78%;top:47.31%;width:12.21%;height:25.39%;" alt="">
+  <img src="img/image82.jpg" style="left:15.19%;top:47.59%;width:13.95%;height:24.77%;" alt="">
+  <img src="img/image81.png" style="left:25.34%;top:47.62%;width:21.01%;height:24.77%;" alt="">
+  <img src="img/image86.png" style="left:21.44%;top:33.63%;width:4.45%;height:11.62%;" alt="">
+  <img src="img/image77.png" style="left:2.69%;top:34.92%;width:6.15%;height:10.33%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 21 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Harry Potter</div><div class="title">WB / Harry Potter — Character Art</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image92.jpg" style="left:6.98%;top:10.23%;width:24.48%;height:29.02%;" alt="">
+  <img src="img/image88.jpg" style="left:32.67%;top:10.23%;width:39.59%;height:29.02%;" alt="">
+  <img src="img/image83.png" style="left:1.75%;top:10.23%;width:13.93%;height:15.07%;" alt="">
+  <img src="img/image94.png" style="left:-1.06%;top:41.33%;width:32.82%;height:30.63%;" alt="">
+  <img src="img/image85.png" style="left:33.45%;top:63.54%;width:12.3%;height:6.46%;" alt="">
+  <img src="img/image106.png" style="left:1.75%;top:29.09%;width:4.48%;height:10.16%;" alt="">
+  <img src="img/image111.png" style="left:24.74%;top:50.45%;width:10.43%;height:17.35%;" alt="">
+  <img src="img/image110.png" style="left:38.09%;top:40.9%;width:10.15%;height:22.64%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 22 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Clockwork</div><div class="title">Clockwork Revolution — Concept Art</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image89.jpg" style="left:41.58%;top:17.51%;width:29.3%;height:48.74%;" alt="">
+  <img src="img/image90.gif" style="left:5.08%;top:21.98%;width:24.9%;height:44.27%;" alt="">
+  <img src="img/image117.png" style="left:3.56%;top:4.14%;width:27.05%;height:27.7%;" alt="">
+  <img src="img/image91.png" style="left:10.94%;top:64.4%;width:9.03%;height:8.05%;" alt="">
+  <img src="img/image115.png" style="left:10.87%;top:64.35%;width:9.03%;height:8.05%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 23 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Clockwork</div><div class="title">Clockwork Revolution — Characters</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image125.jpg" style="left:1.37%;top:6.0%;width:41.97%;height:59.73%;" alt="">
+  <img src="img/image95.jpg" style="left:41.51%;top:6.0%;width:32.12%;height:59.25%;" alt="">
+  <img src="img/image96.jpg" style="left:24.52%;top:6.0%;width:23.41%;height:59.73%;" alt="">
+  <img src="img/image115.png" style="left:10.87%;top:64.35%;width:9.03%;height:8.05%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 24 -->
+<section class="slide-section" id="brooklyn">
+<div class="slide-label"><div class="category">Brooklyn Museum</div><div class="title">Brooklyn Museum — Digital Experience</div></div>
+<div class="slide-canvas" style="background:#1D1C1D;">
+  <img src="img/image100.png" style="left:4.32%;top:40.56%;width:9.32%;height:8.72%;" alt="">
+  <img src="img/image98.png" style="left:1.79%;top:40.57%;width:2.53%;height:9.31%;" alt="">
+  <img src="img/image105.png" style="left:1.57%;top:2.22%;width:35.08%;height:32.85%;" alt="">
+  <img src="img/image101.png" style="left:37.85%;top:2.22%;width:28.7%;height:32.85%;" alt="">
+  <img src="img/image104.png" style="left:14.02%;top:40.57%;width:22.82%;height:23.69%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 25 -->
+<section class="slide-section" id="xr">
+<div class="slide-label"><div class="category">Nokia Bell Labs</div><div class="title">Nokia Bell Labs — XR / AR</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image102.png" style="left:1.75%;top:11.7%;width:41.13%;height:39.49%;" alt="">
+  <img src="img/image103.jpg" style="left:34.56%;top:40.62%;width:39.03%;height:32.32%;" alt="">
+  <img src="img/image128.png" style="left:48.51%;top:6.67%;width:13.42%;height:12.58%;" alt="">
+  <img src="img/image109.png" style="left:1.75%;top:52.91%;width:11.66%;height:9.88%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 26 -->
+<section class="slide-section" id="farmville">
+<div class="slide-label"><div class="category">FarmVille</div><div class="title">FarmVille / Zynga — Character Art</div></div>
+<div class="slide-canvas" style="background:#0E0C0A;">
+  <img src="img/image121.png" style="left:2.87%;top:4.06%;width:18.53%;height:10.5%;" alt="">
+  <img src="img/image132.png" style="left:0.7%;top:39.63%;width:18.31%;height:34.89%;" alt="">
+  <img src="img/image137.png" style="left:13.62%;top:38.14%;width:25.81%;height:36.38%;" alt="">
+  <img src="img/image135.jpg" style="left:39.59%;top:16.15%;width:22.01%;height:23.48%;" alt="">
+  <img src="img/image118.jpg" style="left:39.59%;top:46.48%;width:22.01%;height:25.32%;" alt="">
+  <img src="img/image131.png" style="left:57.94%;top:-1.09%;width:16.28%;height:52.94%;" alt="">
+  <img src="img/image113.png" style="left:65.66%;top:20.65%;width:9.03%;height:34.89%;" alt="">
+  <img src="img/image112.gif" style="left:62.26%;top:55.54%;width:11.96%;height:16.26%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 27 -->
+<section class="slide-section">
+<div class="slide-label"><div class="category">Corporate</div><div class="title">Corporate & EdTech — Character Art</div></div>
+<div class="slide-canvas" style="background:#1F1F1F;">
+  <img src="img/image114.png" style="left:30.23%;top:6.97%;width:44.77%;height:44.77%;" alt="">
+  <img src="img/image127.png" style="left:23.93%;top:7.48%;width:15.95%;height:30.42%;" alt="">
+  <img src="img/image130.jpg" style="left:1.35%;top:53.64%;width:20.71%;height:17.15%;" alt="">
+  <img src="img/image138.gif" style="left:22.77%;top:53.64%;width:18.45%;height:17.15%;" alt="">
+  <img src="img/image119.png" style="left:41.93%;top:53.64%;width:32.33%;height:17.15%;" alt="">
+</div>
+<hr class="slide-divider">
+</section>
+
+<!-- SLIDE 28: QUOTE -->
+<section class="slide-section">
+<div class="quote-slide">
+  <blockquote>"Design is not just what it looks like and feels like. Design is how it works."</blockquote>
+</div>
+</section>
+<hr class="slide-divider">
+<!-- SLIDE 29: CONTACT -->
+<section class="slide-section" id="contact">
+<div class="contact-slide">
+  <h2>Get in Touch</h2>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:vince@ncubate-studios.com">vince@ncubate-studios.com</a>
+    <a class="contact-link" href="tel:5102898726">510.289.8726</a>
+    <a class="contact-link" href="https://vincefung.art">vincefung.art</a>
+  </div>
+</div>
+</section>
+
+<footer>© 2026 Vince Fung · Art Director · Technical Artist · Studio Founder</footer>
 
 </body>
 </html>
