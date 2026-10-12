@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vince Fung — Art Director &amp; Character Artist</title>
+<meta name="description" content="Portfolio of Vince Fung (冯绍文) — Art Director and Character Artist with 20+ years across AAA, mobile, VR/AR, and IP development.">
+<style>
+:root{
+  --bg:#F7F5F2;
+  --ink:#1A1714;
+  --accent:#C4540A;
+  --accent2:#E8A045;
+  --muted:#6B6560;
+  --card-bg:#FFFFFF;
+  --hero-bg:#0E0C0A;
+  --nav-h:60px;
+  --r:8px;
+  --serif:'Georgia','Times New Roman','Songti SC','STSong',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  height:var(--nav-h);
+  background:rgba(247,245,242,0.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1rem,4vw,3rem);
+}
+.nav-logo{font-family:var(--serif);font-size:1.1rem;font-weight:700;letter-spacing:0.01em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:0.85rem;font-weight:500;color:var(--muted);transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+@media(max-width:600px){.nav-links{display:none}}
+
+/* ── HERO ── */
+.hero{
+  position:relative;
+  min-height:92vh;
+  background:var(--hero-bg) url('img/hero-bg.png') center/cover no-repeat;
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(14,12,10,0.15) 0%, rgba(14,12,10,0.75) 70%, rgba(14,12,10,0.95) 100%);
+}
+.hero-content{
+  position:relative;z-index:1;
+  padding:clamp(2rem,6vw,5rem) clamp(1.5rem,6vw,5rem);
+  max-width:800px;
+}
+.hero-eyebrow{
+  font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--accent2);margin-bottom:0.75rem;font-weight:600;
+}
+.hero-name{
+  font-family:var(--serif);
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  line-height:1.05;
+  color:#FAF8F5;
+  margin-bottom:0.5rem;
+}
+.hero-name-zh{
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  color:rgba(250,248,245,0.55);
+  font-family:var(--serif);
+  letter-spacing:0.15em;
+  margin-bottom:1.25rem;
+}
+.hero-desc{
+  color:rgba(250,248,245,0.8);
+  font-size:clamp(0.95rem,1.8vw,1.15rem);
+  max-width:560px;
+  line-height:1.7;
+  margin-bottom:2rem;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--accent);color:#fff;
+  padding:0.75rem 1.75rem;border-radius:4px;
+  font-size:0.9rem;font-weight:600;letter-spacing:0.04em;
+  transition:background 0.2s,transform 0.15s;
+}
+.hero-cta:hover{background:#a84308;transform:translateY(-1px)}
+.hero-cta-ghost{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1.5px solid rgba(250,248,245,0.4);color:rgba(250,248,245,0.85);
+  padding:0.75rem 1.75rem;border-radius:4px;
+  font-size:0.9rem;font-weight:600;letter-spacing:0.04em;
+  margin-left:0.75rem;
+  transition:border-color 0.2s,color 0.2s;
+}
+.hero-cta-ghost:hover{border-color:#fff;color:#fff}
+.hero-stats{
+  display:flex;gap:2.5rem;margin-top:2.5rem;
+  border-top:1px solid rgba(250,248,245,0.12);
+  padding-top:1.5rem;
+}
+.stat-val{font-family:var(--serif);font-size:1.6rem;color:#FAF8F5;font-weight:700}
+.stat-lbl{font-size:0.72rem;color:rgba(250,248,245,0.5);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.1rem}
+
+/* ── SECTION SHELL ── */
+section{padding:5rem clamp(1rem,5vw,3rem)}
+.section-label{
+  font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:0.5rem;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  color:var(--ink);line-height:1.2;margin-bottom:0.75rem;
+}
+.section-sub{color:var(--muted);max-width:600px;margin-bottom:3rem;font-size:0.98rem}
+.container{max-width:1200px;margin:0 auto}
+
+/* ── FEATURED GRID ── */
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));
+  gap:1.5rem;
+}
+.featured-card{
+  border-radius:var(--r);
+  overflow:hidden;
+  background:var(--hero-bg);
+  position:relative;
+  aspect-ratio:16/9;
+  cursor:default;
+}
+.featured-card img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s ease,opacity 0.4s;
+  opacity:0.9;
+}
+.featured-card:hover img{transform:scale(1.04);opacity:1}
+.featured-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(10,8,6,0.88) 0%, rgba(10,8,6,0.2) 55%, transparent 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1.5rem;
+  transition:background 0.3s;
+}
+.featured-card:hover .featured-card-overlay{
+  background:linear-gradient(to top, rgba(10,8,6,0.92) 0%, rgba(10,8,6,0.35) 65%, transparent 100%);
+}
+.fc-tag{
+  font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--accent2);font-weight:700;margin-bottom:0.35rem;
+}
+.fc-title{
+  font-family:var(--serif);font-size:1.35rem;color:#FAF8F5;
+  line-height:1.2;margin-bottom:0.4rem;
+}
+.fc-role{font-size:0.78rem;color:rgba(250,248,245,0.6)}
+.fc-desc{
+  font-size:0.82rem;color:rgba(250,248,245,0.75);
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,margin-top 0.3s;
+  line-height:1.5;
+}
+.featured-card:hover .fc-desc{max-height:120px;margin-top:0.5rem}
+.fc-pills{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem}
+.pill{
+  font-size:0.65rem;padding:0.2rem 0.5rem;border-radius:2px;
+  background:rgba(196,84,10,0.25);color:var(--accent2);
+  font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+}
+
+/* wide card spans full width */
+.featured-card.wide{grid-column:1/-1;aspect-ratio:21/9}
+@media(max-width:700px){.featured-card.wide{aspect-ratio:16/9}}
+
+/* ── PROJECT GRID (smaller cards) ── */
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));
+  gap:1.25rem;
+}
+.project-card{
+  border-radius:var(--r);overflow:hidden;
+  background:var(--card-bg);
+  box-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.05);
+  transition:box-shadow 0.25s,transform 0.25s;
+}
+.project-card:hover{
+  box-shadow:0 2px 8px rgba(0,0,0,0.1),0 8px 24px rgba(0,0,0,0.1);
+  transform:translateY(-3px);
+}
+.pc-img{aspect-ratio:16/9;overflow:hidden;background:#111}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;opacity:0.9}
+.project-card:hover .pc-img img{transform:scale(1.05);opacity:1}
+.pc-body{padding:1rem 1.1rem 1.25rem}
+.pc-company{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:0.2rem}
+.pc-title{font-family:var(--serif);font-size:1.05rem;color:var(--ink);margin-bottom:0.3rem;line-height:1.25}
+.pc-role{font-size:0.78rem;color:var(--muted);margin-bottom:0.5rem}
+.pc-desc{font-size:0.8rem;color:var(--muted);line-height:1.55}
+
+/* ── SKILLS ── */
+.skills-bg{background:#FAF8F5;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06)}
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.5rem;
+}
+.skill-cat{background:#fff;border-radius:var(--r);padding:1.25rem;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.skill-cat-title{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:0.75rem}
+.skill-list{list-style:none}
+.skill-list li{font-size:0.83rem;color:var(--muted);padding:0.3rem 0;border-bottom:1px solid rgba(0,0,0,0.05);display:flex;align-items:center;gap:0.4rem}
+.skill-list li::before{content:'';width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
+
+/* ── CONTACT ── */
+.contact-section{
+  position:relative;
+  background:var(--hero-bg) url('img/contact-bg.png') center/cover no-repeat;
+  overflow:hidden;
+}
+.contact-section::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(14,12,10,0.78);
+}
+.contact-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center}
+.contact-section .section-label{color:var(--accent2)}
+.contact-section .section-title{color:#FAF8F5}
+.contact-section p{color:rgba(250,248,245,0.7);margin-bottom:2rem}
+.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem}
+.contact-btn{
+  padding:0.7rem 1.5rem;border-radius:4px;
+  font-size:0.88rem;font-weight:600;letter-spacing:0.04em;
+  transition:all 0.2s;
+}
+.contact-btn.primary{background:var(--accent);color:#fff}
+.contact-btn.primary:hover{background:#a84308}
+.contact-btn.ghost{
+  border:1.5px solid rgba(250,248,245,0.35);
+  color:rgba(250,248,245,0.85);
+}
+.contact-btn.ghost:hover{border-color:#fff;color:#fff}
+
+/* ── FOOTER ── */
+footer{
+  background:#0E0C0A;color:rgba(250,248,245,0.4);
+  text-align:center;padding:2rem 1rem;font-size:0.78rem;
+}
+footer a{color:rgba(250,248,245,0.55);transition:color 0.2s}
+footer a:hover{color:var(--accent2)}
+.footer-name{font-family:var(--serif);color:rgba(250,248,245,0.7);margin-bottom:0.3rem;font-size:0.9rem}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:rgba(0,0,0,0.07);max-width:1200px;margin:0 auto}
+
+/* ── ABOUT STRIP ── */
+.about-strip{
+  background:#fff;
+  border-top:1px solid rgba(0,0,0,0.06);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.about-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;align-items:center;
+}
+@media(max-width:700px){.about-inner{grid-template-columns:1fr}}
+.about-img{border-radius:var(--r);overflow:hidden;aspect-ratio:16/9}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-body p{color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:1rem}
+.about-body p:last-child{margin-bottom:0}
+.credit-tag{
+  display:inline-block;margin-top:0.5rem;
+  font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;
+  border:1px solid rgba(196,84,10,0.3);
+  padding:0.2rem 0.5rem;border-radius:2px;
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">Vince Fung <span>冯绍文</span></div>
+  <ul class="nav-links">
+    <li><a href="#featured">Work</a></li>
+    <li><a href="#console">Console / AAA</a></li>
+    <li><a href="#mobile">Mobile</a></li>
+    <li><a href="#xr">XR</a></li>
+    <li><a href="#ip">IP Dev</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Art Director &amp; Character Artist</p>
+    <h1 class="hero-name">Vince Fung</h1>
+    <p class="hero-name-zh">冯绍文</p>
+    <p class="hero-desc">
+      20+ years crafting worlds and characters across AAA console, mobile, VR/AR, and original IP development.
+      From Pixar-alumni studios to top global publishers — building art that resonates across cultures.
+    </p>
+    <a href="#featured" class="hero-cta">View Work ↓</a>
+    <a href="#contact" class="hero-cta-ghost">Get in Touch</a>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">20+</div>
+        <div class="stat-lbl">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-val">AAA</div>
+        <div class="stat-lbl">Console &amp; PC</div>
+      </div>
+      <div>
+        <div class="stat-val">VR/AR</div>
+        <div class="stat-lbl">Meta · Nokia · BCM</div>
+      </div>
+      <div>
+        <div class="stat-val">IP</div>
+        <div class="stat-lbl">Original Worlds</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURED ── -->
+<section id="featured">
+  <div class="container">
+    <p class="section-label">Featured Projects</p>
+    <h2 class="section-title">Selected Work</h2>
+    <p class="section-sub">A cross-platform body of work spanning VR, mobile, console, and original IP.</p>
+
+    <div class="featured-grid">
+
+      <!-- Meta WoW — wide hero card -->
+      <div class="featured-card wide">
+        <img src="img/wow-hero.png" alt="Meta War of Wizards — Fox Hunter hero character" loading="lazy">
+        <div class="featured-card-overlay">
+          <p class="fc-tag">Meta · VR · 2022–2024</p>
+          <h3 class="fc-title">War of Wizards</h3>
+          <p class="fc-role">Art Director — Character &amp; Environment</p>
+          <p class="fc-desc">Led end-to-end art direction for Meta's flagship VR strategy title. Defined hero character aesthetics, oversaw environment pipelines, and shipped photorealistic VR environments including the moonlit graveyard biome.</p>
+          <div class="fc-pills">
+            <span class="pill">VR</span>
+            <span class="pill">Character Art</span>
+            <span class="pill">Environment</span>
+            <span class="pill">Art Direction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Baseball Bash -->
+      <div class="featured-card">
+        <img src="img/baseball-hero.png" alt="Baseball Bash — MLB × Supercell hero art with SF Giants stadium" loading="lazy">
+        <div class="featured-card-overlay">
+          <p class="fc-tag">Supercell · Mobile · MLB × MLBPA</p>
+          <h3 class="fc-title">Baseball Bash</h3>
+          <p class="fc-role">Lead Character Artist — HIK Rig System</p>
+          <p class="fc-desc">24 MLB player characters across 3 body types using HIK rig retargeting. Automated clothing resize script, Shohei Ohtani likeness work, MLB × MLBPA licensed.</p>
+          <div class="fc-pills">
+            <span class="pill">Character Art</span>
+            <span class="pill">HIK Rig</span>
+            <span class="pill">Mobile</span>
+            <span class="pill">Likeness</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stormforge -->
+      <div class="featured-card">
+        <img src="img/stormforge.png" alt="Stormforge — key art with heroes overlooking elemental landscape" loading="lazy">
+        <div class="featured-card-overlay">
+          <p class="fc-tag">Jam City · Mobile</p>
+          <h3 class="fc-title">Stormforge</h3>
+          <p class="fc-role">Art Director — Characters &amp; Environment</p>
+          <p class="fc-desc">High-fantasy mobile RPG with elemental hero roster and expansive world-building. Directed character pipelines and environment key art across launch and seasonal content.</p>
+          <div class="fc-pills">
+            <span class="pill">Art Direction</span>
+            <span class="pill">Fantasy RPG</span>
+            <span class="pill">Mobile</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT STRIP ── -->
+<section class="about-strip" style="padding:4rem clamp(1rem,5vw,3rem)">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="img/wow-env.png" alt="Meta War of Wizards — moonlit VR graveyard environment" loading="lazy">
+    </div>
+    <div class="about-body">
+      <p class="section-label">About</p>
+      <h2 class="section-title" style="margin-bottom:1rem">Crafting worlds<br>across cultures</h2>
+      <p>Based in the San Francisco Bay Area with deep roots in global game development, I bring together technical character artistry and creative art direction to build memorable game experiences.</p>
+      <p>My background spans Pixar-alumni studios, top AAA publishers, and cutting-edge XR projects — with a specialty in bridging Eastern and Western aesthetics for worldwide audiences.</p>
+      <p>Fluent in the full pipeline from ZBrush concept sculpts to engine-ready delivery, I partner closely with engineering, design, and product teams to ship art that elevates the entire experience.</p>
+      <span class="credit-tag">Available for Senior &amp; Director Roles</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONSOLE / AAA ── -->
+<section id="console">
+  <div class="container">
+    <p class="section-label">Console &amp; AAA</p>
+    <h2 class="section-title">High-Fidelity Worlds</h2>
+    <p class="section-sub">From period-piece environments to photorealistic creature work in Unity and Unreal.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/brooklyn.png" alt="1930s Brooklyn DUMBO street — period environment art" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Xbox Game Studios</p>
+          <p class="pc-title">Clockwork Revolution</p>
+          <p class="pc-role">Environment Art</p>
+          <p class="pc-desc">1930s Brooklyn DUMBO cobblestone streetscape with period-authentic architecture, vintage vehicles, and Brooklyn Bridge backdrop. Stylized realism pipeline.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/mammoth.png" alt="Woolly mammoth — photorealistic Unity engine render" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">AAA Console</p>
+          <p class="pc-title">Woolly Mammoth</p>
+          <p class="pc-role">Creature Art — Unity Engine</p>
+          <p class="pc-desc">Photorealistic woolly mammoth with detailed skin, fur, and tusks in a lush forest-meadow setting. Full Unity engine scene with PBR materials and environmental lighting.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/sims2.png" alt="The Sims 2 DS box art" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Electronic Arts</p>
+          <p class="pc-title">The Sims 2 (DS)</p>
+          <p class="pc-role">Character &amp; Art Direction</p>
+          <p class="pc-desc">Handheld adaptation of EA's flagship life-simulation franchise. Character art and visual direction for the Nintendo DS platform release.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── MOBILE ── -->
+<section id="mobile" style="background:#FAF8F5;border-top:1px solid rgba(0,0,0,0.06)">
+  <div class="container">
+    <p class="section-label">Mobile Games</p>
+    <h2 class="section-title">App Store to Global Audiences</h2>
+    <p class="section-sub">Stylized character pipelines and art direction optimized for mobile platforms and live-service content cadence.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/baseball-detail.png" alt="Baseball Bash — Shohei Ohtani head turnaround, player designs" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Supercell · MLB × MLBPA</p>
+          <p class="pc-title">Baseball Bash — Character Sheet</p>
+          <p class="pc-role">Lead Character Artist</p>
+          <p class="pc-desc">Shohei Ohtani head turnaround, Blue Jays player, environment concepts, and mobile loading screen. HIK rig system supporting Tall, Big, and Medium body types.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/stormforge-ice.png" alt="Stormforge ice golem — frost creature character" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Jam City</p>
+          <p class="pc-title">Stormforge — Ice Golem</p>
+          <p class="pc-role">Character Art Director</p>
+          <p class="pc-desc">Armored frost creature with ice-crystal fists and glowing eye. Elemental enemy designed to communicate threat and elemental type at mobile screen sizes.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/grubble-raids.png" alt="Grubble Raids — stylized mobile game splash and creature WIPs" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Mobile · Stylized</p>
+          <p class="pc-title">Grubble Raids</p>
+          <p class="pc-role">Character Art — Creatures</p>
+          <p class="pc-desc">Low-poly stylized creature roster for mobile raid game. Canyon environment key art and three creature sculpts from concept through textured renders.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── XR ── -->
+<section id="xr">
+  <div class="container">
+    <p class="section-label">VR / AR / XR</p>
+    <h2 class="section-title">Immersive &amp; Extended Reality</h2>
+    <p class="section-sub">From Meta's VR flagship to enterprise AR installations — bridging the physical and digital.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/wow-env.png" alt="Meta War of Wizards VR environment — moonlit graveyard" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Meta · Quest</p>
+          <p class="pc-title">War of Wizards — VR Environments</p>
+          <p class="pc-role">Art Director</p>
+          <p class="pc-desc">Moonlit graveyard biome for Meta's VR strategy title. Floating rock formations, pumpkin dressing, and atmospheric fog lighting optimized for Quest hardware.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/nokia-ar.png" alt="Nokia Bell Labs AR — industrial factory visualization on curved screens" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Nokia Bell Labs</p>
+          <p class="pc-title">Industrial AR Visualization</p>
+          <p class="pc-role">XR Art Direction</p>
+          <p class="pc-desc">Enterprise AR experience visualizing factory floor operations — robot arm status, order lists, network topology — across an immersive curved-screen installation.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img" style="background:#111;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9">
+          <p style="color:rgba(255,255,255,0.3);font-size:0.8rem;padding:1rem;text-align:center">Brooklyn Children's Museum<br>AR Experience</p>
+        </div>
+        <div class="pc-body">
+          <p class="pc-company">Brooklyn Children's Museum</p>
+          <p class="pc-title">Educational AR Experience</p>
+          <p class="pc-role">AR Art Direction</p>
+          <p class="pc-desc">Interactive AR installation for museum visitors. Age-appropriate character art and environmental storytelling designed to engage children through augmented reality.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── IP DEV / ORANA ── -->
+<section id="ip" style="background:#FAF8F5;border-top:1px solid rgba(0,0,0,0.06)">
+  <div class="container">
+    <p class="section-label">Original IP Development</p>
+    <h2 class="section-title">World of Orana</h2>
+    <p class="section-sub">An original collectible creature IP — world-building, character design, UI, and narrative from scratch.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/orana-world.png" alt="World of Orana — Gohjee creature on floating island" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Orana · Original IP</p>
+          <p class="pc-title">Gohjee — World Design</p>
+          <p class="pc-role">Creator &amp; Art Director</p>
+          <p class="pc-desc">Hero creature Gohjee on a teal-and-pink floating island environment. Established the world's visual language — luminous flora, floating terrain, and warm golden-hour atmosphere.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/orana-ip.png" alt="Orana IP sheet — Yokai card, Bloo creatures, mobile UI" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Orana · Original IP</p>
+          <p class="pc-title">Creature Roster &amp; Mobile UI</p>
+          <p class="pc-role">Creator &amp; UI/UX Art Director</p>
+          <p class="pc-desc">Full creature roster design including Yokai hero card, Bloo variant lineup, and companion mobile UI screens. Defined Orana's collectible creature ecosystem and game loop visual language.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/orana-chars.png" alt="Orana — tree golem, red beast, fox warrior character lineup" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Orana · Original IP</p>
+          <p class="pc-title">Hero Character Lineup</p>
+          <p class="pc-role">Character Art Director</p>
+          <p class="pc-desc">Three hero creature archetypes: ancient tree golem, muscle-type red beast, and armored fox warrior. Character select UI integration shown at base — built for a live mobile service model.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="pc-img"><img src="img/orana-gameplay.png" alt="Orana gameplay — Gohjee and vehicle on rocky platform at golden hour" loading="lazy"></div>
+        <div class="pc-body">
+          <p class="pc-company">Orana · Original IP</p>
+          <p class="pc-title">Gameplay Environment</p>
+          <p class="pc-role">Environment &amp; Prop Art</p>
+          <p class="pc-desc">In-game rocky platform traversal scene with Gohjee and scout vehicles. Warm golden-hour lighting and giant tree backdrop establish Orana's signature environmental tone.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills" class="skills-bg">
+  <div class="container">
+    <p class="section-label">Skills &amp; Tools</p>
+    <h2 class="section-title">Full-Pipeline Expertise</h2>
+    <p class="section-sub">From concept to engine-ready delivery — across characters, environments, UI, and XR.</p>
+    <div class="skills-grid">
+
+      <div class="skill-cat">
+        <p class="skill-cat-title">3D &amp; Sculpting</p>
+        <ul class="skill-list">
+          <li>ZBrush</li>
+          <li>Maya</li>
+          <li>Blender</li>
+          <li>3ds Max</li>
+          <li>Marvelous Designer</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <p class="skill-cat-title">Texturing &amp; Lookdev</p>
+        <ul class="skill-list">
+          <li>Substance Painter</li>
+          <li>Substance Designer</li>
+          <li>Photoshop</li>
+          <li>PBR / PBS workflows</li>
+          <li>Marmoset Toolbag</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <p class="skill-cat-title">Engines</p>
+        <ul class="skill-list">
+          <li>Unreal Engine 4 / 5</li>
+          <li>Unity</li>
+          <li>Meta Horizon / Quest SDK</li>
+          <li>Mobile optimization</li>
+          <li>LOD pipelines</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <p class="skill-cat-title">Rigging &amp; Animation</p>
+        <ul class="skill-list">
+          <li>HIK rig systems</li>
+          <li>Body type retargeting</li>
+          <li>Clothing simulation</li>
+          <li>Automated resize scripts</li>
+          <li>Maya animation pipeline</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <p class="skill-cat-title">Art Direction</p>
+        <ul class="skill-list">
+          <li>Style guide creation</li>
+          <li>Team leadership</li>
+          <li>Outsource management</li>
+          <li>Cross-cultural aesthetics</li>
+          <li>IP development</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <p class="skill-cat-title">Platforms &amp; XR</p>
+        <ul class="skill-list">
+          <li>Meta Quest VR</li>
+          <li>AR (ARKit / ARCore)</li>
+          <li>Mobile (iOS / Android)</li>
+          <li>Console (PS / Xbox / Switch)</li>
+          <li>Enterprise XR</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Let's Build Something</h2>
+    <p>Open to senior Art Director, Character Art Lead, and IC Artist roles — game studios, XR, and original IP. Based in the SF Bay Area; open to relocation and remote.</p>
+    <div class="contact-links">
+      <a href="mailto:vince.vfung@gmail.com" class="contact-btn primary">vince.vfung@gmail.com</a>
+      <a href="https://www.linkedin.com/in/vincefung" class="contact-btn ghost" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p class="footer-name">Vince Fung 冯绍文</p>
+  <p>Art Director &amp; Character Artist · San Francisco Bay Area</p>
+  <p style="margin-top:0.5rem">
+    <a href="mailto:vince.vfung@gmail.com">vince.vfung@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/vincefung" target="_blank" rel="noopener">LinkedIn</a>
+  </p>
+  <p style="margin-top:1rem;color:rgba(250,248,245,0.2);font-size:0.7rem">© 2026 Vince Fung. All artwork and imagery are the property of their respective IP holders where applicable.</p>
+</footer>
+
+</body>
+</html>
